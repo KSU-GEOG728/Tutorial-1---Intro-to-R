@@ -1,0 +1,33 @@
+---
+title: "GEOG 728 Lab 1"
+author: "Kate Nelson"
+date: "1/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab Assignment
+
+For your lab assignment due next Thursday please do the following.
+
+1. Create an R Project for your lab assignment with version control enabled (you can also just use your Lab 1 project created in class).
+2. Create an Markdown file (html) titled Lab #1.  
+3. In this R Markdown file create a named numerical variable and a new vector of numbers.
+4. Report these produced data objects and then apply at least two functions to each.
+5. Create a new data frame with three columns and rows. At least one column should contain a character/string variable (e.g. list your top 3 favorite muppets).
+6. Load a dataset from the R `datasets` package and report summary information on the dataset and its structure.
+7. Use the ls() function to see that the objects are stored in your workspace. Clear your workspace using the rm(list = ls()) function. Then, run the ls() function to make sure the objects are gone.
+8. Sign up for a free student account on github and include your github username in your Markdown file.
+9. Your R Markdown file should include: 
+  - text describing what you are doing, 
+  - multiple code chunks where you run actual R code, 
+  - text describing the output, 
+  - an image,
+  - text headers
+  - at least two examples of non-standard text formatting
+  - one list
+10. Make sure you properly format your code, and make sure your document is legible (assessing your lab should not be a scavenger hunt for me).
+11. Knit your R Markdown file and upload a copy of the knit .html file (make sure code and output is visible) to Canvas.
