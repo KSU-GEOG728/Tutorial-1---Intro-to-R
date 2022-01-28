@@ -444,7 +444,7 @@ Whew, that was a lot of information. Finally, we're ready to get cooking with so
 x <- 6
 y <- 8
 n <- 1:10
-let <- LETTERS[1:10]
+let <- mtcarsS[1:10]
 z <- c(1, 1, 2, 3, 5, NA, 13)
 let_df <- data.frame(n, let)
 
@@ -592,7 +592,7 @@ By the way, the `iris` dataset is a [pretty famous dataset in R land](https://tw
 You should now have a second tab open in your main R-Studio window called "R data sets". You can pull any of these datasets into your working environment in R using the command  `data(dataset name)`.
 
 -Try assigning one of these datasets to a new data object called **ds** using the name of the dataset provided in the "R data sets" tab.
--Then take a look at the data, get a summary of the first 5 records, and gather information on its structure.
+- Then take a look at the data, get a summary of the first 5 records, and gather information on its dimensions, number of rows and number of columns.
 
 For example for the `mtcars` dataset I get:
 
@@ -612,7 +612,6 @@ ncol(ds)
 
 
 ```
-
 
 
 

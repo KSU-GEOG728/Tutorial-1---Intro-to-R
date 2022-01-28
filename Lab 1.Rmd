@@ -22,12 +22,12 @@ For your lab assignment due next Thursday please do the following.
 7. Use the ls() function to see that the objects are stored in your workspace. Clear your workspace using the rm(list = ls()) function. Then, run the ls() function to make sure the objects are gone.
 8. Sign up for a free student account on github and include your github username in your Markdown file.
 9. Your R Markdown file should include: 
-  - text describing what you are doing, 
-  - multiple code chunks where you run actual R code, 
-  - text describing the output, 
-  - an image,
-  - text headers
-  - at least two examples of non-standard text formatting
-  - one list
+    - text describing what you are doing, 
+    - multiple code chunks where you run actual R code, 
+    - text describing the output, 
+    - an image,
+    - text headers
+    - at least two examples of non-standard text formatting
+    - one list
 10. Make sure you properly format your code, and make sure your document is legible (assessing your lab should not be a scavenger hunt for me).
 11. Knit your R Markdown file and upload a copy of the knit .html file (make sure code and output is visible) to Canvas.

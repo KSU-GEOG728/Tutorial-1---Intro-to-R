@@ -1,0 +1,141 @@
+---
+title: "Basic R Operations"
+author: "Kate Nelson"
+date: "1/18/2022"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Today's Objectives
+
+- Understand how to: assign values, create lists and vectors, read in data from R datasets and from external .csv files, preview datasets.
+- Know some of the most common R coding errors and where to find help on more complex errors.
+- Be able to create a markdown document with different formatting styles.
+- Be able to create and save code and documents to an R Project.
+
+
+## Making/setting data in R
+
+- One of the most basic things you can do in R is **assign** a value (or a list, or a matrix) to an object.
+  - E.g. I can create a constant called ***cats*** and assign the value ***42*** to it.
+  
+  `cats <- 42`
+  
+- Notice I use `<-` to do this. This is my prefered notation. You can also use `=`, but I don't recommend it.  
+  - To evaluate if two values are equal you must use `==` as in `cats == 42`.
+
+- Note that we do not use quotations for *object* names. Object names also should not start with a number and it's best if they don't have spaces or special characters (*,!,<,%,$,&) to avoid confusing R as these characters are used for other operations in R.
+
+## Vectors and lists
+
+- We can manually create vectors or lists in R using the function `c()` which is short for *concatenate*, which means to link or chain things together.
+  - E.g. I can create a vector of character strings (words) and assign it to an object like this `pets <- c('cats', 'dogs', 'goldfish', 'elephant', 'armadillo')`.
+  - I could also create a vector of numbers like so `friendliness_index <- c(42, 500, 300, 450, 43)`.
+  
+- Note that when I create a list of words I use quotation marks (either single or double is fine) around each and every word which are separated by commas. Do not use quoation marks around numeric values or they will be treated as a word.
+
+- To check and see if we actually did make vectors use the `is.vector()` function.
+
+## Vectors part 2
+
+- Say you want to create a vector of record IDs but don't want to manually type out numbers from 13 to 3,313.
+  - We could write this as `IDs <- 13:3313` where the colon (:) indicates that we want to go from the number on the left to the number on the right by adding **1**. 
+    - See if you can confirm this functionality.
+  - This is equivalent to using the handy `seq()` function, like so `IDs <- seq(from = 13, to = 3313, by = 1)`.
+
+- We can also create a vector of repeating numbers (say for repeat observations at a test site) using the `rep()` function.
+  - E.g. `replicateIDs <- rep(1:5, each = 4)` or `replicateIDs <- rep(1:5, length.out = 5*4)`.
+    - The `each` argument asks `rep()` to return each value of the vector 4 times before going to the next value in the vector and repeating it 4 times.
+    - The `length.out` argument specifies a total length of the desired vector.
+    - Note that the `each` argument is treated as having value = 1 if not specified.
+- `rep()` works with strings as well.
+
+## Dataframes
+
+- We can combine several vectors to create a dataframe.
+- A dataframe is essentially a matrix or data table.
+  - Unlike the *matrix* class in R, a *dataframe* can contain multiple types of data (numeric, string, etc...)
+
+- To make a matrix or dataframe we can combine multiple *column* vectors or multiple *row* vectors.
+  - You can use the base function `cbind()` or `rbind()` to do this. Just input the things you want to combine as arguments in the function.
+    - E.g. `pet_data <- cbind(pets, friendliness_index)` 
+    - Note that the vectors you combine must be consistent with each other (have same number of rows or same number of columns and same column names).=
+    
+- You can also create a matrix from a single vector by telling the function `matrix()` how to create breaks to start new rows. We can either specify a number of columns or a number of rows. We can also specify if the matrix is filled by rows (moving let to right then top to bottom) or by columns (moving top to bottom and then left to right).
+  - E.g. `ID_matrix <- matrix(IDs, ncol = 10)`
+  
+- We can make a *dataframe* using the function `data.frame()`.
+  - E.g. `pet_df <- data.frame(pets, friendliness_index)`
+  
+  
+## Reading in Data
+
+- Just as there are many types of data that can be read into R, there are many functions for reading data into R.
+- One of the most basic is `read.csv()`, which reads in csv (comma seperated values) formatted text files or spreadhseets.
+  - For custom formatted data the character/s used to separate values can be customized using the `sep` argument.
+  - Take note of the `stringsAsFactors` argument and make sure you understand how character strings in your data should be handled.
+  
+- The `readxl` and `openxlsx` packages are commonly used for importing Microsoft Excel worksheets into R.
+
+## About R functions
+
+- Functions in R are written as some word followed by parentheses (e.g. `help()`).
+- Inside the parentheses you will almost always need to specify one or more *arguments*.
+  - *Arguments* are simply information you provide to the function to tell it how to run.
+    - The **help** information for a function tells you what arguments are available for the function and *usually* what the default settings are and what each argument means.
+    - The default settings are often made apparent under the **Usage** heading in the help. 
+        - e.g. for `read.csv()` the default is `stringsAsFactors = FALSE`)
+    - Usually not all arguments must be manually specified.
+
+- When using a function you can often get away with *shorthand* notation by not typing the name of the argument you are specifying but just specifying the setting you want to apply the argument. 
+  - e.g. For `read.csv()` it is rare to specify `read.csv('file = myfile.csv')`. Often this is just written as `read.csv('myfile.csv')`.
+  - However, this shorthand can get you into trouble in cases where the inputs for arguments can not be clearly distinguished from each other.
+    - E.g. In the `rep()` function there are at least three (3) arguments that can be specified whose inputs are all numeric integer values which could be easily confused. If you get the order wrong you might end up with unexpected results. 
+
+## Other Common Coding Errors
+
+Other than problems with misspecifying a function there are a few basic coding errors that are frequently encountered.
+
+- Spelling! 
+  - In most cases character strings must be an exact match for your code to function properly. This includes things like spaces and underscores.
+    - `Error: could not find function` or `Error: could not find object` is a pretty good indication that you might have a spelling error.
+  
+- tYpe CAsE!
+  - Yup, R is case sensitive. Keep this in mind when naming objects.
+  
+- Missing parentheses ()
+  - This is usually a problem only when you have lots of nested arguments and is a strong argument for simplifying things by using more steps and lines of code as opposed to shoving everyhting into one line of dense code.
+    - Basically the old elementary school guidelines for showing your work apply here.
+  - If you place your cursor next to a closing paranetheses `)` the opening parentheses `(` associated with it will be highlighted. This let's you track down where you might be missing a closing parentheses (the problem is nearly always a missing closing parentheses).
+  
+  
+- Misplaced or missing comma 
+  - For functions with lots of arguments check to make sure you have all the commas.
+  - Some functions will have arguments that ask for a list. A comma separated list inside a comma separated list of arguments is a common culprit for missing punctuation.
+
+- Missing ending quotation mark ".
+  - The quotation mark thing is pretty easily identifiable with the right code editor color settings. All your text after the opening quotation mark will be in your character string color.
+  
+
+
+## What are "Projects"
+
+- R Projects are handy for keeping stuff organized.
+  - They are essentially folders that create a link between your working R session and files in that folder.
+  - In other words, they establish a *working directory* for a specific project you are working on.
+  
+- When you use an R Project you don't have to worry about setting a working directory or writing in full path names to your data files. 
+  - This makes life so much simpler.
+  
+ 
+
+## Let's Code 
+
+
+
+

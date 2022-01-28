@@ -55,7 +55,7 @@ This is a studio class, as such you should expect much of our class time to be s
 
 - Treat each other with respect.
 - Do the readings before class.
-  - Skip the reading at your own peril. My short lectures can not and will not cover this material is as great a depth as the readings will.
+  - Skip the reading at your own peril. My short lectures can not and will not cover this material in as great a depth as the readings will.
 - Complete the tutorials before class on the day indicated (usually before Thursday).
   - Skip the tutorials at your own peril. 
 - Take the tutorials seriously. 
@@ -81,6 +81,7 @@ This is a studio class, as such you should expect much of our class time to be s
   - While you can do more than statistics in R, statistics (predominately applied statistics) are at the heart and soul of R.
   - You can download R [here](https://www.r-project.org/).
 - The capabilities of base R are extended by *user-created* packages that offer new functions, object types, and reporting options.
+  - There is no central entity responsible for maintaining this content and not all packages are created equal.
 - R Studio is a GUI (graphical user interface) or Integrated Development Environment (IDE) that is basically a wrapper for all things R.
   - You can download the opensource version of RStudio for Desktop [here](https://www.rstudio.com/products/rstudio/).
 
@@ -104,6 +105,18 @@ This is a studio class, as such you should expect much of our class time to be s
 ## Let's take a gander
 
 
+
+## Reproducible research
+
+One of the reasons I adore R and appreciate Git is that they can be used to make research more open, transparent, and reproducible. 
+
+- *Open* - open access to code and data can be provided online using R scripts and files hosted on GitHub so that anyone can view and use them.
+- *Transparent* - use of documents that combine code and descriptive text like R Markdown files or Jupyter Notebooks is a great way to clearly document the analytical process (and thought-process behind analyses) so that it is clear exactly what a researcher is doing and why.
+- *Reproducible* - use of R scripts to conduct an analysis from start to finish makes it possible for anyone with the same data to replicate your study with ease (relatively speaking) and potentially build off of it with new data or modifications of the modeling process, etc...
+
+Why care about this? Greater openness, transparency, and reproducibility means less re-inventing the wheel, more data available to more people, more advancing and less redoing in a different way, and more confirmation of findings (or identification of false findings). 
+
+By using these tools you can also help to reduce user error inherent in software programs where you click lots of buttons and manually select input and output files, increasing your confidence in your results and eliminating the need to go back and redo long processes over and over again. 
 
 
 ## Live coding!!!
