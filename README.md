@@ -1,7 +1,7 @@
-# tutorial1
-## Tutorial1 - Intro to R
+# Tutorial1 - Intro to R
 
-This repo contains materials for the first week/module of GEOG 728. 
+This repo contains materials for the first week/module of GEOG 728: Programming for geospatial analysis - R. 
+
 For this first module all materials, including instructor teaching materials such as slides and starter code and data for live coding session, available are provided. 
 The materials provided here draw heavily from existing content by other authors (see acknowledgements) that are openly avialable. If you make use of the materials 
 in this repo please make sure to provide credit where it is due.
